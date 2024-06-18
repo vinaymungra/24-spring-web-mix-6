@@ -1,0 +1,8 @@
+
+for ecommerce signup page
+ create table users(
+    userId integer primary key auto_increment,
+    firstName varchar(30),
+    email varchar(30),
+    password varchar(255)
+   );
