@@ -7,11 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="esignup" method="post">
-		FirstName:<input type="text" name="firstName"/><br><br>
-		Email:<input type="text" name="email"/><br><br>
-		Password:<input type="password" name="password"/><br><br>
+	<form action="esignup" method="post" enctype="multipart/form-data">
+		FirstName:<input type="text" name="firstName"/><br>${firstNameError}<br>
+		Email:<input type="text" name="email"/><br><span>${emailTypeError}</span><br>
 		
+		Password:<input type="password" name="password"/><br><span>${passwordTypeError}</span><br>
+		ProfilePic:<input type="file" name="profilePic"/><br><br>
 		<input type="submit" value="Signup"/>
 	</form>
 </body>

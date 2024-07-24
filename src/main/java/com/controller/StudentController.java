@@ -9,17 +9,17 @@ import com.bean.StudentBoxCricBean;
 
 @Controller
 public class StudentController {
+	
 	@GetMapping("/boxcricketregistration")
-	public String boxRegistration() {
+	public String boxRegistration() 
+	{
 		return "BoxCricReg";
 	}
+	
 	@PostMapping("/savereg")
 	public String saveRegistration(StudentBoxCricBean obj,Model model)
 	{
-//		System.out.println(obj.getStudentName());
-//		System.out.println(obj.getPlayerType());
-//		System.out.println(obj.getFoodPreference());
-//		System.out.println(obj.getDrink());	
+
 		boolean isError=false;
 		
 		String alphaRegEx ="[a-zA-Z]+";

@@ -7,13 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h2>EcomHome</h2>
 
-	<form action="elogin" method="post">
-		Email: <input type="text" name="email"/><br/>
-		Password: <input type="password" name="password"/><br/>
-		<input type="submit" value="Login"/>
-		<span >${error}</span>
-		
-	</form>
+Welcome,${user.firstName}<Br>
+
+<img alt="" src="${user.profilePicPath}" height="100px" width="100px"/>
+<Br>
+<a href="/userproducts"> Products</a>
 </body>
 </html>

@@ -7,13 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h2>View Product</h2>
 
-	<form action="elogin" method="post">
-		Email: <input type="text" name="email"/><br/>
-		Password: <input type="password" name="password"/><br/>
-		<input type="submit" value="Login"/>
-		<span >${error}</span>
-		
-	</form>
+	Product Name :  ${product.productName }<Br> 
+	Price :${product.price }<Br>
+	Category:${product.category }<Br>
+	Qty : ${product.qty }<Br>
 </body>
 </html>
