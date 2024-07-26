@@ -76,10 +76,12 @@
         width: 100%;
         font-size: 18px;
         transition: background-color 0.3s, opacity 0.3s;
+         margin-bottom:1rem;
     }
     .card button:hover {
         background-color: #333;
         opacity: 0.9;
+       
     }
     .card:hover {
         transform: scale(1.05);
@@ -87,6 +89,7 @@
     .parent1 {
         display: flex;
         justify-content: center;
+        
     }
     .parent2 {
         display: flex;
@@ -95,36 +98,54 @@
         gap: 10px;
     }
     a {
-        display: inline-block;
+        
         margin: 15px 0;
         color: #007BFF;
         text-decoration: none;
         font-size: 18px;
     }
     a:hover {
-        text-decoration: underline;
+    
+        text-decoration: none;
+      
+        
+    }
+    .subheading {
+    	display:flex;
+    	justify-content:space-between;
     }
 </style>
 </head>
 <body>
     <div class="container">
         <h2>All Products</h2>
-        <a href="/ehome">Home</a>
+        <div class="subheading">
+        	<a href="/ehome">Home</a>
+        	<a href="/mycart">My Cart</a>  
+        	<a href="/logout">Logout</a>   	
+        </div>
+        
         <div class="parent2">
             <% 
                 List<EProductBean> products = (List<EProductBean>) request.getAttribute("products"); 
-                for(EProductBean p : products) {
-                	out.print("");
+                for(EProductBean p : products) {	
                     out.print("<div class='parent1'>");
+                    out.print("<a href='viewproduct?productId=" + p.getProductId() + "'>");
+
                     out.print("<div class='card'>");
+                   
                     out.print("<div class='card-image' style='background-image: url(" + p.getProductPicPath() + ");'></div>");
+                   
                     out.print("<div class='card-content'>");
                     out.print("<h2>" + p.getProductName() + "</h2>");
                     out.print("<p class='price'>Rs. " + p.getPrice() + "</p>");
                     out.print("<p>Some text about the product..</p>");
-                    out.print("<p><button>Add to Cart</button></p>");
+                    out.print("<p><a href='addtocart?productId=" + p.getProductId() + "'><button>Add to Cart</button></a></p>");
+
+
                     out.print("</div>");
                     out.print("</div>");
+                    out.print("</a>");
                     out.print("</div>");
                 }
             %>

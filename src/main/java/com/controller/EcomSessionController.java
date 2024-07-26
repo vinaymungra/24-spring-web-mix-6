@@ -107,11 +107,13 @@ public class EcomSessionController {
 		
 		return "EcomLogin";
 	}
+	
 	@GetMapping("/ehome")
 	public String home()
 	{
 		return "EcomHome";
 	}
+	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		//destroy session 

@@ -34,5 +34,13 @@ for ecommerce signup page
    
    ALTER TABLE products ADD COLUMN productPicPath varchar(1200);
    
+   cohesion and coupling do not mix controllers like products in session 
    
-   cohesion and coupling do not mix controllers like products in sesssion S
+    create table cart (
+ 		cartId int primary key auto_increment,
+ 		productId int, 
+ 		userId int  
+ 	);
+ 	
+ 	
+ 	select * from products join cart using (productId) where userId=8;
