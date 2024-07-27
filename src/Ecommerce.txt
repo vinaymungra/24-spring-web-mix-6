@@ -44,3 +44,11 @@ for ecommerce signup page
  	
  	
  	select * from products join cart using (productId) where userId=8;
+ 	
+ 	alter table cart add column qty int;
+ 	
+ 	delete from cart;
+ 	
+ 	1- challenge
+	 	While adding "removefromcart" functionality EProductBean was not sufficient because it does not contain cartId. 
+	 	So, ProductCartBean was specially made to get cartId 

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.bean.ECartBean;
 import com.bean.EProductBean;
 import com.bean.EUserBean;
+import com.bean.ProductCartBean;
 import com.dao.CartDao;
 
 import jakarta.servlet.http.HttpSession;
@@ -34,6 +35,8 @@ public class CartController {
 			
 			cartDao.addToCart(cartBean);
 			
+			
+			
 			return "redirect:/userproducts";
 		}
 		
@@ -45,6 +48,20 @@ public class CartController {
 			List<EProductBean> products	= cartDao.myCart(userId);
 			model.addAttribute("products",products);
 			return "MyCart";
+		}
+		
+		@GetMapping("/removecartitem")
+		public String removecartitem(@RequestParam("productId") Integer productId,HttpSession session)
+		{
+//			System.out.println(cartId);
+//			cartDao.removeCartItem(cartId);
+			ECartBean cartBean= new ECartBean();
+			cartBean.setProductId(productId);
+			EUserBean user=(EUserBean) session.getAttribute("user");
+			cartBean.setUserId(user.getUserId());
+			
+			cartDao.removeCartItem(cartBean);
+			return "redirect:/mycart";
 		}
 	
 }
